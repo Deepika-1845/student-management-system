@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #F3F0FF;
+            margin: 0;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #6A5ACD;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* LOGIN BOX */
+        .box {
+            width: 320px;
+            margin: 120px auto;
+            padding: 25px;
+            background: white;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px;
+            width: 95%;
+            background: #6A5ACD;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5a4abc;
+        }
+    </style>
+
+    <script>
+        function showError() {
+            const msg = new URLSearchParams(window.location.search).get("msg");
+            if (msg === "error") {
+                alert("Invalid Username or Password");
+            }
+        }
+    </script>
+
+</head>
+
+<body onload="showError()">
+
+<!-- NAVBAR -->
+<div class="navbar">
+    Student Management System - Login
+</div>
+
+<!-- LOGIN FORM -->
+<div class="box">
+    <h2>Login</h2>
+
+    <form action="login" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+</body>
+</html>

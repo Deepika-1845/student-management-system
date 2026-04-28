@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Form</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #F3F0FF;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #6A5ACD;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 400px;
+            margin: 60px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #6A5ACD;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #5a4abc;
+        }
+
+        /* FOOTER */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #6A5ACD;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+        function showMessage() {
+            const msg = new URLSearchParams(window.location.search).get("msg");
+            if (msg === "saved") alert("Saved!");
+            if (msg === "exists") alert("Already exists!");
+            if (msg === "deleted") alert("Deleted!");
+            if (msg === "updated") alert("Updated!");
+        }
+
+        function fillForm() {
+            const p = new URLSearchParams(window.location.search);
+
+            document.getElementById("id").value = p.get("id") || "";
+            document.getElementById("usn").value = p.get("usn") || "";
+            document.getElementById("name").value = p.get("name") || "";
+            document.getElementById("age").value = p.get("age") || "";
+            document.getElementById("phone").value = p.get("phone") || "";
+            document.getElementById("email").value = p.get("email") || "";
+            document.getElementById("address").value = p.get("address") || "";
+        }
+    </script>
+</head>
+
+<body onload="showMessage(); fillForm();">
+
+<div class="navbar">
+    Student Management System |
+    <a href="index.html">Home</a>
+    <a href="view">View Students</a>
+    <a href="login.html">Logout</a>
+</div>
+
+<div class="container">
+
+<h2>Student Form</h2>
+
+<form action="hello" method="post">
+
+<input type="hidden" name="id" id="id">
+
+<input type="text" name="usn" id="usn" placeholder="USN">
+<input type="text" name="name" id="name" placeholder="Name">
+<input type="text" name="age" id="age" placeholder="Age">
+<input type="text" name="phone" id="phone" placeholder="Phone">
+<input type="text" name="email" id="email" placeholder="Email">
+<input type="text" name="address" id="address" placeholder="Address">
+
+<button class="btn" type="submit">Save Student</button>
+
+</form>
+
+</div>
+
+<!-- ✅ FOOTER -->
+<div class="footer">
+    © Student Management System
+</div>
+
+</body>
+</html>
